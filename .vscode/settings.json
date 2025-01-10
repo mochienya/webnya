@@ -1,0 +1,35 @@
+{
+  // make explorer less overwhelming
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "svelte.config.js": "vite.config.ts, eslint.config.js, tsconfig.json",
+    "package.json": "bun.lockb"
+  },
+  "explorer.excludeGitIgnore": true,
+
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html",
+    "markdown",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml",
+    "toml",
+    "svelte",
+    "css",
+    "scss"
+  ]
+}

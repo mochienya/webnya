@@ -1,0 +1,13 @@
+:global(body, html) {
+  background-color: #0c0c0c;
+  margin: 0;
+  color-scheme: dark;
+  font-family: sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+* { margin: 0; }
