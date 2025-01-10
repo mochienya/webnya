@@ -10,6 +10,9 @@ const config = {
     adapter: adapter({
       precompress: true,
     }),
+    paths: {
+      base: process.argv.includes("dev") ? "" : process.env.BASE_PATH,
+    },
   },
 };
 
