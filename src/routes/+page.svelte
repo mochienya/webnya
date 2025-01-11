@@ -1,11 +1,5 @@
-<div class="name">
-  <h1>mochienya</h1>
-  <span class="pronouns">
-    she/<a href="https://f53.dev">her's</a>
-  </span>
-</div>
-
-<div class="hole">
+<!-- TODO: have 2 lists and use svelte thingies to write them out -->
+<div class="hole bgblur">
   <div class="modifiers">
     <span class="title">Modifiers</span>
     <span>such a</span>
@@ -40,24 +34,12 @@
 </div>
 
 <style lang="scss">
-  @use "../global.scss";
-.name {
-  display:flex; flex-direction: column;
-  .pronouns {
-    font-size: 0.8rem;
-    opacity: 0.75;
-  }
-  a {
-    all: unset;
-    &:hover { text-decoration: underline; cursor: pointer }
-  }
-}
+@use "../global.scss";
 
 .hole {
   display: flex;
   flex-direction: row;
   gap: 1rem;
-  background-color: #080808;
   padding: 0.5rem;
   border-radius: 1rem;
 }
