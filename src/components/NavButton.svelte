@@ -1,5 +1,5 @@
 <script lang="ts">
-  let { buttonLabel } = $props();
+  const { buttonLabel } = $props();
 </script>
 
 <button>{buttonLabel}</button>
