@@ -9,4 +9,7 @@ export default antfu({
       "style/semi": "error",
     },
   },
+  rules: {
+    "node/prefer-global/process": "off",
+  },
 });
