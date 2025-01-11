@@ -17,6 +17,13 @@
 
 <script>
   const { children } = $props();
+  import Snow from "../components/Snow.svelte";
+  import Header from "./Header.svelte";
 </script>
 
-{@render children()}
+<Header></Header>
+
+<Snow></Snow>
+<main>
+  {@render children()}
+</main>
