@@ -1,35 +1,50 @@
-<!-- TODO: have 2 lists and use svelte thingies to write them out -->
+<script lang="ts">
+  const modifiers = [
+    "such a",
+    "good",
+    "pretty",
+    "needy",
+    "slutty",
+    "my",
+    "little",
+    "rapeworthy",
+    "kissworthy",
+    "chokeworthy",
+    "cuddly",
+    "warm",
+    "cock obsessed",
+    "dumb",
+    "adorable",
+  ];
+  const things = [
+    "bitch",
+    "slut",
+    "puppy",
+    "dog",
+    "girl",
+    "princess",
+    "cutie",
+    "sweetie",
+    "cumslut",
+    "fuckpuppy",
+    "puppygirlfriend",
+    "lap dog",
+  ];
+</script>
+
 <div class="hole bgblur">
-  <div class="modifiers">
+  <div class="wordlist">
     <span class="title">Modifiers</span>
-    <span>such a</span>
-    <span>good</span>
-    <span>pretty</span>
-    <span>needy</span>
-    <span>slutty</span>
-    <span>my</span>
-    <span>little</span>
-    <span>rapeworthy</span>
-    <span>kissworthy</span>
-    <span>chokeworthy</span>
-    <span>cuddly</span>
-    <span>warm</span>
-    <span>cock obsessed</span>
+    {#each modifiers as modifier}
+      <span>{modifier}</span>
+    {/each}
   </div>
-  <div class="things">
+
+  <div class="wordlist">
     <span class="title">Things</span>
-    <span>bitch</span>
-    <span>slut</span>
-    <span>puppy</span>
-    <span>dog</span>
-    <span>girl</span>
-    <span>princess</span>
-    <span>cutie</span>
-    <span>sweetie</span>
-    <span>cumslut</span>
-    <span>fuckpuppy</span>
-    <span>puppygirlfriend</span>
-    <span>lap dog</span>
+    {#each things as thing}
+      <span>{thing}</span>
+    {/each}
   </div>
 </div>
 
@@ -43,7 +58,7 @@
   padding: 0.5rem;
   border-radius: 1rem;
 }
-.modifiers, .things {
+.wordlist {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
