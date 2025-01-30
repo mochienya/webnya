@@ -1,11 +1,5 @@
-<script lang="ts">
-  const { buttonLabel } = $props();
-</script>
-
-<button>{buttonLabel}</button>
-
-<style lang="scss">
-button {
+@mixin button {
+  all: unset;
   background-color: #31a3d8;
   border-radius: 15px;
   border-width: 0px;
@@ -17,5 +11,10 @@ button {
     scale:1.05;
     filter:brightness(1.05);
   }
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  gap: 0.12em;
 }
-</style>

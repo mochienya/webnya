@@ -16,9 +16,9 @@
 </svelte:head>
 
 <script>
-  const { children } = $props();
-  import Snow from "../components/Snow.svelte";
-  import Header from "./Header.svelte";
+  const { children } = $props()
+  import Header from "../components/Header.svelte"
+  import Snow from "../components/Snow.svelte"
 </script>
 
 <Header></Header>
@@ -27,3 +27,7 @@
 <main>
   {@render children()}
 </main>
+
+<style lang="scss">
+  @use "../styles/global.scss";
+</style>

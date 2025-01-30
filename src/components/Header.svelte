@@ -1,18 +1,21 @@
 <script lang="ts">
-  import NavButton from "../components/NavButton.svelte";
+  import LinkButton from "./LinkButton.svelte"
 </script>
 
 <header class="bgblur">
   <div class="columnWrapper">
-    <div class="navButtons">
-      {#each ["these", "buttons", "do", "nothing"] as label}
-        <NavButton buttonLabel={label}></NavButton>
+    <div class="navButtons row">
+      {#each [
+          ["home", "/"],
+          ["degen", "/degeneracy"],
+        ] as [label, href] }
+        <LinkButton {label} {href} />
       {/each}
     </div>
   </div>
 
   <div class="columnWrapper">
-    <div class="name">
+    <div class="name col">
       <h1>mochienya</h1>
       <span class="pronouns">
         she/<a href="https://f53.dev">her's</a>
@@ -26,7 +29,6 @@
 </header>
 
 <style lang="scss">
-@use "../global.scss";
 
 header {
   width: 100vw;
@@ -42,14 +44,11 @@ header {
 }
 
 .navButtons {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
 }
 
 .name {
-  display:flex; flex-direction: column;
   .pronouns {
     font-size: 0.8rem;
     opacity: 0.75;

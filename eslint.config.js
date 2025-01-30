@@ -6,7 +6,7 @@ export default antfu({
     quotes: "double",
     overrides: {
       "style/eol-last": ["error", "never"],
-      "style/semi": "error",
+      "style/semi": "never",
     },
   },
   rules: {
