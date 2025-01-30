@@ -3,7 +3,8 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
     "svelte.config.js": "vite.config.ts, eslint.config.js, tsconfig.json",
-    "package.json": "bun.lockb"
+    "package.json": "bun.lockb",
+    "+layout.svelte": "+layout.ts"
   },
   "explorer.excludeGitIgnore": true,
 
