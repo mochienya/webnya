@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths"
   import LinkButton from "./LinkButton.svelte"
 </script>
 
@@ -6,8 +7,8 @@
   <div class="columnWrapper">
     <div class="navButtons row">
       {#each [
-        ["home", "/"],
-        ["degen", "/degeneracy"],
+        ["home", `${base}/`],
+        ["degen", `${base}/degeneracy`],
       ] as [label, href], i (i)}
         <LinkButton {label} {href} />
       {/each}
