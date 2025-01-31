@@ -1,11 +1,11 @@
 <script lang="ts">
-  import mochie from "$lib/assets/mochienya.png"
+  import { base } from "$app/paths"
   import DiscordButton from "../components/DiscordButton.svelte"
   import LinkButton from "../components/LinkButton.svelte"
 </script>
 
 <div class="bgblur row" id="card">
-  <img src={mochie} alt="mochie!!" />
+  <img src={`${base}/assets/mochienya.png`} alt="mochie!!" />
 
   <div class="col" id="otherSection">
 
