@@ -1,7 +1,7 @@
 <script lang="ts">
+  import mochie from "$lib/assets/mochienya.png"
   import DiscordButton from "../components/DiscordButton.svelte"
   import LinkButton from "../components/LinkButton.svelte"
-  import mochie from "../images/mochienya.png"
 </script>
 
 <div class="bgblur row" id="card">
