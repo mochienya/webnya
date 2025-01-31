@@ -1,5 +1,5 @@
 <div id="snowContainer">
-  {#each { length: 300 } as _}
+  {#each { length: 300 } as _, i (i)}
     <div class="snow"></div>
   {/each}
 </div>

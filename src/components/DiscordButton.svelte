@@ -1,16 +1,16 @@
 <script lang="ts">
-    import Icon from "@iconify/svelte";
+  import Icon from "@iconify/svelte"
 
   let timeoutId: number | undefined
+  let messageShown = $state(false)
   function onclick() {
     clearTimeout(timeoutId)
     navigator.clipboard.writeText("mochie.nya")
     messageShown = true
     timeoutId = setTimeout(() => {
       messageShown = false
-    }, 1250);
+    }, 1250)
   }
-  let messageShown = $state(false)
 </script>
 
 <div>
@@ -18,7 +18,7 @@
     <span id="copied">copied :3</span>
   {/if}
   <button {onclick}>
-    <Icon icon="ic:baseline-discord"></Icon>
+    <Icon icon="ic:baseline-discord" />
     <span>discord</span>
   </button>
 </div>

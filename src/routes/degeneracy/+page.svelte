@@ -35,14 +35,14 @@
 <div class="hole bgblur">
   <div class="wordlist">
     <span class="title">Modifiers</span>
-    {#each modifiers as modifier}
+    {#each modifiers as modifier, i (i)}
       <span>{modifier}</span>
     {/each}
   </div>
 
   <div class="wordlist">
     <span class="title">Things</span>
-    {#each things as thing}
+    {#each things as thing, i (i)}
       <span>{thing}</span>
     {/each}
   </div>
