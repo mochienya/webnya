@@ -15,15 +15,15 @@
   <meta name="twitter:card" content="summary" />
 </svelte:head>
 
-<script>
+<script lang="ts">
   const { children } = $props()
   import Header from "../components/Header.svelte"
   import Snow from "../components/Snow.svelte"
 </script>
 
-<Header></Header>
+<Header />
 
-<Snow></Snow>
+<Snow />
 <main>
   {@render children()}
 </main>

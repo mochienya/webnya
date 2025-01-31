@@ -6,9 +6,9 @@
   <div class="columnWrapper">
     <div class="navButtons row">
       {#each [
-          ["home", "/"],
-          ["degen", "/degeneracy"],
-        ] as [label, href] }
+        ["home", "/"],
+        ["degen", "/degeneracy"],
+      ] as [label, href], i (i)}
         <LinkButton {label} {href} />
       {/each}
     </div>

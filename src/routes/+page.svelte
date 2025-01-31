@@ -1,7 +1,7 @@
 <script lang="ts">
-  import mochie from '../images/mochienya.png'
-  import LinkButton from '../components/LinkButton.svelte';
-  import DiscordButton from '../components/DiscordButton.svelte';
+  import DiscordButton from "../components/DiscordButton.svelte"
+  import LinkButton from "../components/LinkButton.svelte"
+  import mochie from "../images/mochienya.png"
 </script>
 
 <div class="bgblur row" id="card">
@@ -11,7 +11,7 @@
 
     <div id="textContainer">
       <p>
-        haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br>
+        haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br />
         i really enjoy tinkering with linux, watching shows with my gf, and talking to people
       </p>
       <!-- add more stuff here. i can't think anymore -->
@@ -23,7 +23,7 @@
       {#each [
         ["bluesky", "https://bsky.app/profile/mochie.being.dog", "mingcute:bluesky-social-fill"],
         ["source", "https://github.com/mochienya/webnya", "mdi:github"],
-      ] as [label, href, icon] }
+      ] as [label, href, icon], i (i)}
         <LinkButton {label} {href} {icon} />
       {/each}
 
