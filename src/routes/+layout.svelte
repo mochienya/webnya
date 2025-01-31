@@ -11,7 +11,7 @@
   <meta property="og:description" content="loyal nerdy puppygirlfriend" />
   <meta name="author" content="mochienya" />
   <meta property="og:title" content="mochienya" />
-  <meta property="og:image" content="android-chrome-512x512.png" />
+  <meta property="og:image" content="/android-chrome-512x512.png" />
   <meta name="twitter:card" content="summary" />
 </svelte:head>
 
