@@ -1,3 +1,11 @@
+<script lang="ts">
+  import { base } from "$app/paths"
+  import Header from "../components/Header.svelte"
+  import Snow from "../components/Snow.svelte"
+
+  const { children } = $props()
+</script>
+
 <svelte:head>
   <title>mochienya</title>
 
@@ -11,15 +19,9 @@
   <meta property="og:description" content="loyal nerdy puppygirlfriend" />
   <meta name="author" content="mochienya" />
   <meta property="og:title" content="mochienya" />
-  <meta property="og:image" content="/android-chrome-512x512.png" />
+  <meta property="og:image" content={`${base}/android-chrome-512x512.png`} />
   <meta name="twitter:card" content="summary" />
 </svelte:head>
-
-<script lang="ts">
-  const { children } = $props()
-  import Header from "../components/Header.svelte"
-  import Snow from "../components/Snow.svelte"
-</script>
 
 <Header />
 
