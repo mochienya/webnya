@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths"
-  import LinkButton from "./LinkButton.svelte"
+  import LinkButton from "$lib/components/LinkButton.svelte"
 </script>
 
 <header class="bgblur">
