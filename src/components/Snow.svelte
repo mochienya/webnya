@@ -1,63 +1,91 @@
-<div id="snowContainer">
-  {#each { length: 300 } as _, i (i)}
-    <div class="snow"></div>
-  {/each}
-</div>
+<script lang="ts">
+  import { onDestroy, onMount } from "svelte"
 
-<style lang="scss">
-@use 'sass:math';
-:global {
-#snowContainer {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  scale: 1.01;
-  opacity: 0.5;
-}
+  function rand(min: number, max: number) {
+    return Math.random() * (max - min) + min
+  }
 
-// the following css is yoinked from https://codepen.io/alphardex/pen/dyPorwJ
-@function random_range($min, $max) {
-  $rand: math.random();
-  $random_range: $min + math.floor($rand * (($max - $min) + 1));
-  @return $random_range;
-}
+  function mod(n: number, d: number) {
+    return ((n % d) + d) % d
+  }
 
-.snow {
-  $total: 300;
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  filter: drop-shadow(0 0 10px white);
+  let ctx!: CanvasRenderingContext2D
+  let canvas!: HTMLCanvasElement
+  const maxSpeed = 0.12
 
-  @for $i from 1 through $total {
-    $random-x: math.random(1000000) * 0.0001svw;
-    $random-offset: random_range(-100000, 100000) * 0.0001svw;
-    $random-x-end: $random-x + $random-offset;
-    $random-x-end-yoyo: calc($random-x + ($random-offset / 2));
-    $random-yoyo-time: calc(random_range(30000, 80000) / 100000);
-    $random-yoyo-y: $random-yoyo-time * 100vh;
-    $random-scale: math.random(10000) * 0.0001;
-    $fall-duration: random_range(10, 30) * 1s;
-    $fall-delay: math.random(30) * -1s;
+  class Point {
+    x: number
+    y: number
+    velocity: { x: number, y: number }
+    readonly size: number
+    readonly blur: number
+    readonly alpha: number
 
-    &:nth-child(#{$i}) {
-      opacity: #{math.random(10000) * 0.0001};
-      transform: translate($random-x, -10px) scale($random-scale);
-      animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
+    constructor() {
+      this.x = rand(0, canvas.width)
+      this.y = rand(0, canvas.height)
+      this.velocity = {
+        x: rand(-maxSpeed, maxSpeed),
+        y: (rand(1, maxSpeed) + rand(1, maxSpeed)) / 2,
+      }
+      this.size = rand(0.5, 6)
+      this.blur = (this.size * 2.5) + 2
+      this.alpha = rand(0.1, 1)
     }
 
-    @keyframes fall-#{$i} {
-      #{math.percentage($random-yoyo-time)} {
-        transform: translate($random-x-end, $random-yoyo-y) scale($random-scale);
-      }
-
-      to {
-        transform: translate($random-x-end-yoyo, 100vh) scale($random-scale);
-      }
+    drawPoint() {
+      ctx.shadowBlur = this.blur
+      ctx.globalAlpha = this.alpha
+      ctx.beginPath()
+      ctx.arc(
+        this.x,
+        this.y,
+        this.size,
+        0,
+        360,
+      )
+      ctx.fill()
+      ctx.closePath()
     }
   }
-}
-}
+
+  let snowAmnt: number
+  let points: Point[]
+
+  function renderFrame() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+    points.forEach((i) => {
+      i.x = mod((i.x + i.velocity.x), canvas.width)
+      i.y = mod((i.y + i.velocity.y), canvas.height)
+      i.drawPoint()
+    })
+  }
+  let interval: number
+
+  onMount(() => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+    ctx = canvas.getContext("2d")!
+    ctx.fillStyle = "#ffffff7f"
+    ctx.shadowColor = "#ffffffbf"
+    snowAmnt = Math.floor((250 / 1920) * canvas.width)
+    points = Array.from({ length: snowAmnt }, () => new Point())
+    interval = setInterval(renderFrame, 10)
+  })
+
+  onDestroy(() => {
+    clearInterval(interval)
+  })
+
+</script>
+
+<canvas bind:this={canvas}></canvas>
+
+<style lang="scss">
+  canvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    scale: 1.1
+  }
 </style>
