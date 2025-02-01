@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths"
-  import Header from "../components/Header.svelte"
-  import Snow from "../components/Snow.svelte"
+  import Header from "$lib/components/Header.svelte"
+  import Snow from "$lib/components/Snow.svelte"
 
   const { children } = $props()
 </script>
@@ -31,5 +31,5 @@
 </main>
 
 <style lang="scss">
-  @use "../styles/global.scss";
+  @use "../lib/styles/global.scss";
 </style>

@@ -1,5 +1,10 @@
 <script lang="ts">
+  import { debounce } from "$lib/utils/debounce"
   import { onDestroy, onMount } from "svelte"
+
+  let ctx!: CanvasRenderingContext2D
+  let canvas!: HTMLCanvasElement
+  const maxSpeed = 0.12
 
   function rand(min: number, max: number) {
     return Math.random() * (max - min) + min
@@ -9,9 +14,13 @@
     return ((n % d) + d) % d
   }
 
-  let ctx!: CanvasRenderingContext2D
-  let canvas!: HTMLCanvasElement
-  const maxSpeed = 0.12
+  function handleResize() {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+
+    renderFrame()
+  }
+  const debounceHandleResize = debounce(handleResize, 500)
 
   class Point {
     x: number
@@ -71,10 +80,12 @@
     snowAmnt = Math.floor((250 / 1920) * canvas.width)
     points = Array.from({ length: snowAmnt }, () => new Point())
     interval = setInterval(renderFrame, 10)
+    addEventListener("resize", debounceHandleResize)
   })
 
   onDestroy(() => {
     clearInterval(interval)
+    removeEventListener("resize", debounceHandleResize)
   })
 
 </script>

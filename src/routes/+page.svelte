@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths"
-  import DiscordButton from "../components/DiscordButton.svelte"
-  import LinkButton from "../components/LinkButton.svelte"
+  import DiscordButton from "$lib/components/DiscordButton.svelte"
+  import LinkButton from "$lib/components/LinkButton.svelte"
 </script>
 
 <div class="bgblur row" id="card">
