@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { debounce } from "$lib/utils/debounce"
+  import { useDebounce } from "runed"
   import { onDestroy, onMount } from "svelte"
 
   let ctx!: CanvasRenderingContext2D
@@ -29,7 +29,7 @@
 
     renderFrame()
   }
-  const debounceHandleResize = debounce(handleResize, 500)
+  const debounceHandleResize = useDebounce(handleResize, 500)
 
   class Point {
     x: number
@@ -93,16 +93,18 @@
     ctx = canvas.getContext("2d")!
     snowAmnt = Math.floor((250 / 1920) * canvas.width)
     points = Array.from({ length: snowAmnt }, () => new Point())
-    addEventListener("resize", debounceHandleResize)
     interval = setInterval(renderFrame, 10)
   })
 
   onDestroy(() => {
-    removeEventListener("resize", debounceHandleResize)
     clearInterval(interval)
   })
 
 </script>
+
+<svelte:window
+  onresize={debounceHandleResize}
+/>
 
 <canvas bind:this={canvas}></canvas>
 
