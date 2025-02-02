@@ -40,6 +40,7 @@
     border-radius: 1rem;
     max-width: 950px;
     padding: 1rem;
+    margin: 1rem;
   }
 
   #otherSection {
