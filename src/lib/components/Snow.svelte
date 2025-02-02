@@ -15,8 +15,17 @@
   }
 
   function handleResize() {
+    const oldWidth = canvas.width
+    const oldHeight = canvas.height
+
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
+
+    const scaleWidthBy = canvas.width / oldWidth
+    const scaleHeightBy = canvas.height / oldHeight
+    points.forEach((point) => {
+      point.scalePosition(scaleWidthBy, scaleHeightBy)
+    })
 
     renderFrame()
   }
@@ -45,6 +54,8 @@
     drawPoint() {
       ctx.shadowBlur = this.blur
       ctx.globalAlpha = this.alpha
+      ctx.fillStyle = "#ffffff7f"
+      ctx.shadowColor = "#ffffffbf"
       ctx.beginPath()
       ctx.arc(
         this.x,
@@ -55,6 +66,11 @@
       )
       ctx.fill()
       ctx.closePath()
+    }
+
+    scalePosition(widthScale: number, heightScale: number) {
+      this.x *= widthScale
+      this.y *= heightScale
     }
   }
 
@@ -75,17 +91,15 @@
     canvas.width = window.innerWidth
     canvas.height = window.innerHeight
     ctx = canvas.getContext("2d")!
-    ctx.fillStyle = "#ffffff7f"
-    ctx.shadowColor = "#ffffffbf"
     snowAmnt = Math.floor((250 / 1920) * canvas.width)
     points = Array.from({ length: snowAmnt }, () => new Point())
-    interval = setInterval(renderFrame, 10)
     addEventListener("resize", debounceHandleResize)
+    interval = setInterval(renderFrame, 10)
   })
 
   onDestroy(() => {
-    clearInterval(interval)
     removeEventListener("resize", debounceHandleResize)
+    clearInterval(interval)
   })
 
 </script>
@@ -97,6 +111,9 @@
     position: fixed;
     inset: 0;
     z-index: -1;
-    scale: 1.1
+    width: calc(100vw + 1rem);
+    height: calc(100vh + 1rem);
+    left: -.5rem;
+    top: -.5rem;
   }
 </style>
