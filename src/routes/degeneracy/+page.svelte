@@ -15,6 +15,7 @@
     "cock obsessed",
     "dumb",
     "adorable",
+    "loyal",
   ]
   const things = [
     "bitch",
