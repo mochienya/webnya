@@ -9,6 +9,7 @@
       {#each [
         ["home", `${base}/`],
         ["degen", `${base}/degeneracy`],
+        ["devblogs", `${base}/devBlogs`],
       ] as [label, href], i (i)}
         <LinkButton {label} {href} />
       {/each}
@@ -35,6 +36,9 @@ header {
   width: 100vw;
   display: grid;
   grid-template-columns: repeat(3, 33.33vw);
+  position: sticky;
+  top: 0px;
+  z-index: 2;
 }
 
 .columnWrapper {
@@ -51,8 +55,9 @@ header {
 
 .name {
   .pronouns {
-    font-size: 0.8rem;
-    opacity: 0.75;
+    font-size: 0.95rem;
+    color: #c4c4c4;
+    font-weight: 375;
   }
   a {
     all: unset;

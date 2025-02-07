@@ -33,7 +33,7 @@
   ]
 </script>
 
-<div class="hole bgblur">
+<div class="card bgblur">
   <div class="wordlist">
     <span class="title">Modifiers</span>
     {#each modifiers as modifier, i (i)}
@@ -51,7 +51,7 @@
 
 <style lang="scss">
 
-.hole {
+.card {
   display: flex;
   flex-direction: row;
   gap: 1rem;
