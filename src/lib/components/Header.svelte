@@ -1,19 +1,11 @@
 <script lang="ts">
-  import { base } from "$app/paths"
-  import LinkButton from "$lib/components/LinkButton.svelte"
-</script>
+  import NavButtons from "./NavButtons.svelte"
 
+</script>
 <header class="bgblur">
+
   <div class="columnWrapper">
-    <div class="navButtons row">
-      {#each [
-        ["home", `${base}/`],
-        ["degen", `${base}/degeneracy`],
-        ["devblogs", `${base}/devBlogs`],
-      ] as [label, href], i (i)}
-        <LinkButton {label} {href} />
-      {/each}
-    </div>
+    <NavButtons />
   </div>
 
   <div class="columnWrapper">
@@ -46,11 +38,6 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.navButtons {
-  align-items: center;
-  gap: 0.5rem;
 }
 
 .name {

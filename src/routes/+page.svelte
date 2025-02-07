@@ -7,9 +7,9 @@
 <div class="bgblur row card">
   <img src={`${base}/assets/mochienya.png`} alt="mochie!!" />
 
-  <div class="col" id="otherSection">
+  <div class="col otherSection">
 
-    <div id="textContainer">
+    <div class="textContainer darkbgblur">
       <p>
         haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br />
         i really enjoy tinkering with linux, watching shows with my gf, and talking to people
@@ -17,7 +17,7 @@
       <!-- add more stuff here. i can't think anymore -->
     </div>
 
-    <div id="links" class="row">
+    <div class="row links">
       <DiscordButton />
 
       {#each [
@@ -43,12 +43,17 @@
     margin: 1rem;
   }
 
-  #otherSection {
+  .textContainer {
+    padding: 0.65rem;
+    border-radius: 10px;
+  }
+
+  .otherSection {
     height: 100%;
     justify-content: space-between;
   }
 
-  #links {
+  .links {
     gap: 0.5rem;
     justify-content: end;
   }

@@ -36,16 +36,20 @@
 <div class="card bgblur">
   <div class="wordlist">
     <span class="title">Modifiers</span>
-    {#each modifiers as modifier, i (i)}
-      <span>{modifier}</span>
-    {/each}
+    <div class="listcontent col darkbgblur">
+      {#each modifiers as modifier, i (i)}
+        <span class="listitem">{modifier}</span>
+      {/each}
+    </div>
   </div>
 
   <div class="wordlist">
     <span class="title">Things</span>
-    {#each things as thing, i (i)}
-      <span>{thing}</span>
-    {/each}
+    <div class="listcontent col darkbgblur">
+      {#each things as thing, i (i)}
+        <span class="listitem">{thing}</span>
+      {/each}
+    </div>
   </div>
 </div>
 
@@ -61,16 +65,24 @@
 .wordlist {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  > span:not(.title) {
-    background-color: #1c1c1c;
+  align-items: space-around;
+  gap: 0.75rem;
+  > * { margin: 0 auto; }
+  .title {
+    font-weight: bold;
+    padding: 0.25rem 0rem;
+  }
+  .listitem {
     padding: 0.125rem 0.25rem;
     border-radius: 1rem;
     width: fit-content;
   }
-  > * { margin: auto; }
-  .title {
-    font-weight: bold;
+  .listcontent {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.2rem;
+    border-radius: 10px;
+    height: 100%;
   }
 }
 </style>

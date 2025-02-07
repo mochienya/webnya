@@ -6,7 +6,7 @@
 </script>
 
 <a class="link" href={`${page.url.pathname}/${blog.path}`}>
-  <div class="row spacebetween bgblur listElement">
+  <div class="row spacebetween darkbgblur listElement">
     <div class="col">
       <h2>{blog.meta.title}</h2>
       <span>{blog.meta.description}</span>
@@ -33,7 +33,6 @@
   }
 
   .listElement {
-    background-color: rgba(0, 0, 0, 0.301);
     padding: 0.4rem;
     border-radius: 10px;
     transition: scale 0.6s cubic-bezier(0.34, 1.54, 0.64, 1);
