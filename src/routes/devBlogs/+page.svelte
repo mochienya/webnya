@@ -27,7 +27,7 @@
     padding: 1rem;
     margin: 1rem;
   }
-  hr { margin: 1rem 0; }
+  hr { margin: 1/rem 0; }
   li, ul {
     all: unset;
   }

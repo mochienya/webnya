@@ -1,19 +1,21 @@
 export async function getAllBlogs() {
-  const paths = import.meta.glob("$lib/blogs/*.md", { eager: true })
+  const paths = import.meta.glob("../../blogs/*.md", { eager: true })
 
-  const filesArray = Object.entries(paths)
-  const finalObj = await Promise.all(
-    filesArray.map(async ([path, metadataPromise]) => { // 2d array basically equivalent to { $lib/blogs/blog.md: (metadata of the file) }
-      if (path.includes("png")) { return }
-      const { metadata } = await metadataPromise()
+  let blogs: any[] = []
 
-      const finalPath = `${/(\w+)(?=\.md$)/.exec(path)}`
+  for (const path in paths) {
+    const file = paths[path]
+    const finalPath = path.split("/").at(-1)?.replace(".md", "")
 
-      return {
-        meta: metadata,
-        path: finalPath,
-      }
-    })
-  )
-  return finalObj
+    if (file && typeof file === "object" && "metadata" in file && finalPath) {
+      const metadata = file.metadata
+      const post = { meta: metadata, path: finalPath }
+      blogs.push(post)
+    }
+
+    blogs = blogs.sort(
+      (first, second) => new Date(second.meta.date).getTime() - new Date(first.meta.date).getTime()
+    )
+  }
+  return blogs
 }

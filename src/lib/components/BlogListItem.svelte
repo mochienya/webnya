@@ -1,11 +1,11 @@
 <script lang="ts">
   import { page } from "$app/state"
 
-  const { blog }: { blog: { meta: any, path?: string } } = $props()
+  const { blog }: { blog: { meta: any, path: string } } = $props()
 
 </script>
 <!-- for some reason the path is "blog,blog" by default and i couldn't figure out why -->
-<a class="link" href={`${page.url.pathname}/${blog.path}`.split(",")[0]}>
+<a class="link" href={`${page.url.pathname}/${blog.path}`}>
   <div class="row spacebetween bgblur listElement">
     <div class="col">
       <h2>{blog.meta.title}</h2>
