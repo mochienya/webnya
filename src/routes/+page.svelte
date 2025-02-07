@@ -4,7 +4,7 @@
   import LinkButton from "$lib/components/LinkButton.svelte"
 </script>
 
-<div class="bgblur row" id="card">
+<div class="bgblur row card">
   <img src={`${base}/assets/mochienya.png`} alt="mochie!!" />
 
   <div class="col" id="otherSection">
@@ -34,7 +34,7 @@
 <style lang="scss">
 
   img { width: 320px; height: 320px; }
-  #card {
+  .card {
     align-items: center;
     padding: 0.5rem;
     border-radius: 1rem;
@@ -53,7 +53,7 @@
     justify-content: end;
   }
   @media (max-width: 645px) {
-    #card {
+    .card {
       flex-direction: column;
       gap: 1rem;
     }

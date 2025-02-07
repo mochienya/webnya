@@ -29,7 +29,7 @@
 
     renderFrame()
   }
-  const debounceHandleResize = useDebounce(handleResize, 500)
+  const debounceHandleResize = useDebounce(handleResize, 200)
 
   class Point {
     x: number
@@ -62,7 +62,7 @@
         this.y,
         this.size,
         0,
-        360,
+        360
       )
       ctx.fill()
       ctx.closePath()
