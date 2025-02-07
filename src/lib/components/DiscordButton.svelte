@@ -5,7 +5,7 @@
   let copiedMessageShown = $state(false)
   function onclick() {
     clearTimeout(timeoutId)
-    navigator.clipboard.writeText("mochie.nya")
+    navigator.clipboard.writeText("mochienya")
     copiedMessageShown = true
     timeoutId = setTimeout(() => {
       copiedMessageShown = false
@@ -25,7 +25,7 @@
         <Icon icon="ic:baseline-discord" />
         discord
       </span>
-      <span>mochie.nya</span>
+      <span>mochienya</span>
     </div>
   </button>
 </div>
