@@ -4,7 +4,7 @@
   const { blog }: { blog: { meta: any, path: string } } = $props()
 
 </script>
-<!-- for some reason the path is "blog,blog" by default and i couldn't figure out why -->
+
 <a class="link" href={`${page.url.pathname}/${blog.path}`}>
   <div class="row spacebetween bgblur listElement">
     <div class="col">

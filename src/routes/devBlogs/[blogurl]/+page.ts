@@ -1,5 +1,5 @@
 export async function load({ params }) {
-  const blog = await import(`../../../blogs/${params.blogurl}.md`)
+  const blog = await import(`$lib/blogs/${params.blogurl}.md`)
 
   return {
     Content: blog.default,

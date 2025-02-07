@@ -1,5 +1,5 @@
 export async function getAllBlogs() {
-  const paths = import.meta.glob("../../blogs/*.md", { eager: true })
+  const paths = import.meta.glob("$lib/blogs/*.md", { eager: true })
 
   let blogs: any[] = []
 
