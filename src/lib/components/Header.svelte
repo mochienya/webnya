@@ -38,6 +38,10 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  @media (max-width: 645px) { &:first-child {
+    align-items: flex-start;
+    margin-left: 1rem;
+  }}
 }
 
 .name {
