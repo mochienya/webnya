@@ -1,15 +1,21 @@
 <script lang="ts">
   import { base } from "$app/paths"
   import LinkButton from "$lib/components/LinkButton.svelte"
+  import { onMount } from "svelte"
 
   let hamburgerButton = $state() as HTMLDialogElement
 
-  function toggleBurger() {
+  function toggleBurger(e: Event) {
+    e.stopPropagation()
     if (!hamburgerButton.open) {
       hamburgerButton.show()
       return
     } hamburgerButton.close()
   }
+
+  onMount(() => {
+    document.body.addEventListener("click", () => hamburgerButton.close()) // me want @click.stop
+  })
 
 </script>
 
