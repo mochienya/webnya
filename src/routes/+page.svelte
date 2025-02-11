@@ -14,6 +14,10 @@
         haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br />
         i really enjoy tinkering with linux, watching shows with my gf, and talking to people
       </p>
+      <p>
+        The mochie knows where she is at all times.
+        She knows this because she's in her master's arms.
+      </p>
       <!-- add more stuff here. i can't think anymore -->
     </div>
 
