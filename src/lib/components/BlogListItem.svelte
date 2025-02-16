@@ -2,7 +2,6 @@
   import { page } from "$app/state"
 
   const { blog }: { blog: { meta: any, path: string } } = $props()
-
 </script>
 
 <a class="link" href={`${page.url.pathname}/${blog.path}`}>

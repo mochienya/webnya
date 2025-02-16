@@ -3,7 +3,6 @@
 
   const { data } = $props()
   const { blogs } = data
-
 </script>
 
 <div class="card bgblur col">

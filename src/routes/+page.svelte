@@ -36,7 +36,6 @@
 </div>
 
 <style lang="scss">
-
   img { width: 320px; height: 320px; }
   .card {
     align-items: center;

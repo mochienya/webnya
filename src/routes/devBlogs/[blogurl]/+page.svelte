@@ -1,5 +1,4 @@
 <script lang="ts">
-
   const { data } = $props()
   const { Content, meta: {
     title,

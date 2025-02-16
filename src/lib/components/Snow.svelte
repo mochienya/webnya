@@ -99,12 +99,9 @@
   onDestroy(() => {
     clearInterval(interval)
   })
-
 </script>
 
-<svelte:window
-  onresize={debounceHandleResize}
-/>
+<svelte:window onresize={debounceHandleResize} />
 
 <canvas bind:this={canvas}></canvas>
 

@@ -65,7 +65,6 @@
     flex-direction: column;
     align-items: center;
     max-height: 1.25rem;
-    // padding: 0.25rem;
     text-align: center;
     gap: 0.5rem;
     overflow: hidden;
@@ -76,7 +75,6 @@
       justify-content: center;
       gap: 0.25rem;
       transition: transform 0.2s cubic-bezier(0.37, 0, 0.63, 1);
-      // transform: translateY(.125rem);
     }
     &:hover > span {
       transform: translateY(-1.9rem);
@@ -85,6 +83,5 @@
 
   button {
     @include mixins.button;
-    // height: 29px;
   }
 </style>

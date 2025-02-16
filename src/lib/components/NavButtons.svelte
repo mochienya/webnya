@@ -16,7 +16,6 @@
   onMount(() => {
     document.body.addEventListener("click", () => hamburgerButton.close()) // me want @click.stop
   })
-
 </script>
 
 {#snippet buttons()}
@@ -45,7 +44,6 @@
 </div>
 
 <style lang="scss">
-
   .navButtons {
     align-items: center;
     gap: 0.5rem;

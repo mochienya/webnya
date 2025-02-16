@@ -1,9 +1,8 @@
 <script lang="ts">
   import NavButtons from "./NavButtons.svelte"
-
 </script>
-<header class="bgblur">
 
+<header class="bgblur">
   <div class="columnWrapper">
     <NavButtons />
   </div>
@@ -23,7 +22,6 @@
 </header>
 
 <style lang="scss">
-
 header {
   width: 100vw;
   display: grid;
