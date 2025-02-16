@@ -6,7 +6,7 @@ date: "2025.02.07"
 
 The abacus market login process is just a whole lot of human verification and security checks.
 
-I that in the settings page, there was a section for logging in by decrypting a PGP message. After a bit of research I decided it actually would be slower, as I would have to:
+I noticed that in the settings page, there was a section for logging in by decrypting a PGP message. After a bit of research I decided it actually would be slower, as I would have to:
 - Copy the message
 - Open an online PGP message decryptor and paste the message
 - Find where I store my private key and copy it
@@ -31,7 +31,7 @@ However, during testing I only ever did `bun run inde\t\n` and didn't actually c
 I only really disovered this when I later tried using one of the pre-compiled executables when logging in on windows,
 which is when I saw that the program returns a fairly cryptic error about your drive not being found.
 
-After a bit of testing i found out that the clipboard package that I found did not work well with the Bun compilation.
+After a bit of testing i found out that the clipboard package that I found did not work with the Bun compilation.
 
 At this point I decided to try rewriting the program in Rust, which ended up with me being confused as to why people like it so much.
 
@@ -48,5 +48,13 @@ After googling a list of widely used programming languages, I remembered Go exis
 The packages seem promising and the package manager is actually useable.
 (oomf also told me it's programming for stupid people which sounds very good)
 
-I have yet to get started but it's been on my mind a lot recently,
-it will probably be my next thing to do after completing the devblog section of this site.
+## go port
+Development was basically just writing the typescript code but replacing `.expect()`
+with `var, err :=` and `if (err != nil) {log.Fatal()}`.
+
+The tooling was very good, but the unused import and variable warnings became annoying during debugging.
+
+I didn't like Go that much since it lacks a lot of the things I'm used to in js/ts,
+mostly because it often forces you to have intermediary variables instead of using methods.
+
+It will definitely be my go-to (get it?) language if I ever need to write something that has to compile to native code again though.

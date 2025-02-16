@@ -1,12 +1,13 @@
 ---
 title: Equicord
-description: things i did for equicord or just discord modding in general
+description: plugings!!
 date: "2025.02.06"
 ---
 
 ## css
 
 After being around cassie for only a couple of days I had already seen her messing with css on several occasions.
+(She genuinely can't go a day without opening the dev console)
 
 I never really interacted much with css myself other than installing stylus themes or the few times I wrote something for an intro
 web dev course that I followed for a couple hours at most or something.
@@ -38,7 +39,26 @@ My plugin did not work on the web version of discord but they found a fix that d
 Plugin got merged to main while I was sleeping.
 
 ### toggleVideoBind
-On the same day I looked through the vencord plugin suggestions repo and came across
-one asking for a bind to toggle webcam. This was something I had already implemented with the legcord shortcut feature.
+When I woke up the next day, I looked through the vencord plugin suggestions repo and came across
+an issue asking for a bind to toggle webcam. This was something I had already implemented with the Legcord shortcut feature.
 
 Development process was fairly short but I'm still pretty clueless with a lot of the stuff I'm doing. At least there was no regex this time.
+
+### customUserColors
+It always annoyed me a bit that my name color css couldn't work for typing or replies.
+
+I decided to see if it would be easy to make a patch for it, and I saw that
+every discord name component has a colorString prop,
+regardless of whether or not it was in a server.
+
+Development process was actually pretty fun and it was also my first time interacting with react code.
+Most problematic part was probably the DataStores. The first autosuggestion for an import essentially made it write-only,
+unless you used `DataStore.entries` in the console.
+
+The entire plugin is mostly just a modified version of the timezones plugin with the color picker from pinDms.
+
+### minor mods
+
+- global friend nicknames through showMeYourName
+- add DataStores to backups
+- no holding shift to get rid of confirm prompt with showAllMessageButtons
