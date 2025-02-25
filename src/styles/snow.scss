@@ -1,0 +1,9 @@
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  width: calc(100vw + 1rem);
+  height: calc(100vh + 1rem);
+  left: -.5rem;
+  top: -.5rem;
+}

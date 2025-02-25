@@ -1,7 +1,7 @@
 {
   "recommendations": [
-    "ardenivanov.svelte-intellisense",
-    "svelte.svelte-vscode",
+    "astro-build.astro-vscode",
+    "editorconfig.editorconfig",
     "dbaeumer.vscode-eslint"
   ]
 }

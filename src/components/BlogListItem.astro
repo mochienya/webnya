@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from 'astro:content'
+interface Props {
+  entry: CollectionEntry<'devblogs'>
+}
+const { entry } = Astro.props
+---
+
+<a class="link" href={entry.id}>
+  <div class="row justify-between darkbgblur listElement">
+    <div class="col">
+      <h2>{entry.data.title}</h2>
+      <span>{entry.data.description}</span>
+    </div>
+    <div class="col">
+      <span>{entry.data.date}</span>
+    </div>
+  </div>
+</a>
+
+<style lang="scss">
+  a {
+    all: unset;
+    display: contents;
+  }
+  .link {
+    &,
+    & > * {
+      text-decoration: none;
+    }
+  }
+
+  span {
+    color: #c4c4c4;
+  }
+
+  .listElement {
+    padding: 0.4rem;
+    border-radius: 10px;
+    transition: scale 0.6s cubic-bezier(0.34, 1.54, 0.64, 1);
+    &:hover {
+      cursor: pointer;
+      scale: 1.03;
+    }
+  }
+</style>
