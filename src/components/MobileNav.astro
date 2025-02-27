@@ -3,12 +3,8 @@ import { buttonProps } from '../utils/navButtonProps'
 import LinkButton from './LinkButton.astro'
 ---
 
-<script>
-  // remember @click.outside
-</script>
-
 <div x-data class="contents">
-  <dialog class="darkbgblur" x-ref="dialog">
+  <dialog @click.outside="$refs.dialog.close()" x-ref="dialog" class="darkbgblur">
     <div class="col gap-.65rem">
       <>
         {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
@@ -47,6 +43,8 @@ import LinkButton from './LinkButton.astro'
       background-color: #fff;
       border-radius: 1rem;
     }
+    &:hover {cursor: pointer;}
+    @media (min-width: 645px) {display: none;}
   }
 
   dialog {
@@ -59,14 +57,11 @@ import LinkButton from './LinkButton.astro'
     border-radius: 1rem;
     padding: 1.1rem;
 
-    &[open] {
-      display: flex;
-      flex-direction: column;
+    animation-duration: .4s;
+    animation-name: slideIn;
+    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    @keyframes slideIn {
+      from { transform: translateX(8rem); }
     }
-    // animation-duration: .5s;
-    // animation-name: slideIn;
-    // @keyframes slideIn {
-    //   from { margin-left: 20rem; }
-    // }
   }
 </style>

@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <script>
+  import * as Alpine from "alpinejs"
+
   let timeoutId: Timer | undefined
   document.addEventListener('alpine:init', () => {
     Alpine.data('copiedMessageShown', () => ({
