@@ -1,5 +1,6 @@
 ---
-import Header from "../components/Header.astro"
+import Header from '../components/Header.astro'
+import MobileNav from '../components/MobileNav.astro'
 import { Snow } from '../components/Snow.tsx'
 import { ClientRouter } from 'astro:transitions'
 ---
@@ -27,8 +28,9 @@ import { ClientRouter } from 'astro:transitions'
     <ClientRouter />
   </head>
   <body style="background:#0c0c0c; margin:0">
-    <Snow client:only="solid-js" transition:persist/>
-    <Header transition:persist/>
+    <Snow client:only="solid-js" transition:persist />
+    <Header transition:persist />
+    <MobileNav />
     <main>
       <slot />
     </main>
@@ -37,7 +39,8 @@ import { ClientRouter } from 'astro:transitions'
 
 <style is:global>
   @import '../styles/animations.scss';
-  body, html {
+  body,
+  html {
     color-scheme: dark;
     font-family: sans-serif;
     height: 100vh;
@@ -50,6 +53,9 @@ import { ClientRouter } from 'astro:transitions'
   }
   hr {
     min-width: 100%;
+  }
+  [x-cloak] {
+    display: none !important;
   }
   main {
     display: flex;

@@ -1,0 +1,72 @@
+---
+import { buttonProps } from '../utils/navButtonProps'
+import LinkButton from './LinkButton.astro'
+---
+
+<script>
+  // remember @click.outside
+</script>
+
+<div x-data class="contents">
+  <dialog class="darkbgblur" x-ref="dialog">
+    <div class="col gap-.65rem">
+      <>
+        {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
+      </>
+    </div>
+  </dialog>
+  <button
+    @click.stop="$refs.dialog.open ? $refs.dialog.close() : $refs.dialog.show()"
+    aria-label="show/hide navigation menu"
+  >
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+  </button>
+</div>
+
+<style lang="scss">
+  button {
+    all: unset;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 2;
+    background-color: #31a3d8;
+    border-radius: 50%;
+    padding: 1rem;
+    width: 2rem;
+    height: 2rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    > * {
+      width: 100%;
+      height: 0.25rem;
+      background-color: #fff;
+      border-radius: 1rem;
+    }
+  }
+
+  dialog {
+    z-index: 3;
+    position: fixed;
+    bottom: 6rem;
+    right: 0.5rem;
+    left: unset;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.1rem;
+
+    &[open] {
+      display: flex;
+      flex-direction: column;
+    }
+    // animation-duration: .5s;
+    // animation-name: slideIn;
+    // @keyframes slideIn {
+    //   from { margin-left: 20rem; }
+    // }
+  }
+</style>

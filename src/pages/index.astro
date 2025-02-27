@@ -1,7 +1,7 @@
 ---
 import { Picture } from 'astro:assets'
 import LinkButton from '../components/LinkButton.astro'
-import DiscordButton from '../components/DiscordButton.svelte'
+import DiscordButton from '../components/DiscordButton.astro'
 import Layout from '../layouts/Layout.astro'
 import mochie from '/src/assets/mochienya.png'
 
@@ -47,7 +47,7 @@ const guh = {
       </div>
 
       <div class="row links">
-        <DiscordButton client:only />
+        <DiscordButton />
 
         {[
           ['bluesky','https://bsky.app/profile/mochie.being.dog', 'mingcute:bluesky-social-fill'],
