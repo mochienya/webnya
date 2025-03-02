@@ -14,26 +14,26 @@
   },
   "dependencies": {
     "@astrojs/alpinejs": "^0.4.3",
-    "@astrojs/solid-js": "^5.0.4",
+    "@astrojs/solid-js": "^5.0.5",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.8",
-    "astro": "^5.3.0",
+    "astro": "^5.4.1",
     "astro-icon": "^1.1.5",
-    "solid-js": "^1.9.4",
-    "typescript": "^5.7.3"
+    "solid-js": "^1.9.5",
+    "typescript": "^5.8.2"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.3.0",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/mingcute": "^1.2.3",
-    "@types/bun": "^1.2.3",
+    "@types/bun": "^1.2.4",
     "eslint": "^9.21.0",
     "lint-staged": "^15.4.3",
-    "prettier": "^3.5.1",
-    "sass": "^1.85.0",
+    "prettier": "^3.5.2",
+    "sass": "^1.85.1",
     "simple-git-hooks": "^2.11.1",
-    "unocss": "^66.0.0"
+    "unocss": "^66.1.0-beta.3"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx lint-staged"
