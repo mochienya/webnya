@@ -22,37 +22,44 @@ const guh = {
 }
 ---
 
+<script>
+  import { navigate } from 'astro:transitions/client'
+  document.addEventListener('alpine:init', () => {
+    window.Alpine.data('clicker', () => ({
+      count: 0,
+      onclick() {
+        this.count++
+        if (this.count >= 5)
+          navigate('/degeneracy')
+      },
+    }))
+  })
+</script>
+
 <Layout>
   <div class="bgblur row card">
-    <Picture
-      src={mochie}
-      formats={['avif', 'webp']}
-      fallbackFormat='png'
-      alt="mochie!!"
-    />
+    <a x-data="clicker" @click="onclick">
+      <Picture src={mochie} formats={['avif', 'webp']} fallbackFormat="png" alt="mochie!!" />
+    </a>
 
     <div class="col otherSection">
       <div class="textContainer darkbgblur">
         <p>
-          haiiii! i'm a massive tech nerd currently trying to teach myself stuff
-          so i can get a job <br />
-          i really enjoy tinkering with linux, watching shows with my gf, and talking
-          to people
+          haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br />
+          i really enjoy tinkering with linux, watching shows with my gf, and talking to people
         </p>
-        <p>
-          The mochie knows where she is at all times. She knows this because
-          she's in her master's arms.
-        </p>
+        <p>The mochie knows where she is at all times. She knows this because she's in her master's arms.</p>
         <!-- add more stuff here. i can't think anymore -->
       </div>
 
       <div class="row links">
         <DiscordButton />
 
-        {[
-          ['bluesky','https://bsky.app/profile/mochie.being.dog', 'mingcute:bluesky-social-fill'],
-          ['source', 'https://github.com/mochienya/webnya', 'mdi:github'],
-         ].map(([label, href, icon]) => <LinkButton {label} {href} {icon} />)
+        {
+          [
+            ['bluesky', 'https://bsky.app/profile/mochie.being.dog', 'mingcute:bluesky-social-fill'],
+            ['source', 'https://github.com/mochienya/webnya', 'mdi:github'],
+          ].map(([label, href, icon]) => <LinkButton {label} {href} {icon} />)
         }
       </div>
     </div>
@@ -60,6 +67,10 @@ const guh = {
 </Layout>
 
 <style lang="scss">
+  a {
+    all: unset;
+    cursor: pointer;
+  }
   img {
     width: 320px;
     height: 320px;
