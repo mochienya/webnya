@@ -2,14 +2,13 @@
 import { getEntry, render } from 'astro:content'
 import Layout from './Layout.astro'
 
-let currentPage = Astro.url.pathname.split('/').findLast(() => true)!
+let currentPage = Astro.url.pathname.split('/').at(-1)!
 
 if (currentPage === '') currentPage = 'autopgp'
 
 const entry = await getEntry('devblogs', `/devblogs/${currentPage}`)!
 
-
-const { Content, headings } = await render(entry)
+const { Content } = await render(entry)
 const { title, description, date } = entry.data
 ---
 

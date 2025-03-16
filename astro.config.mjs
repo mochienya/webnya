@@ -9,6 +9,7 @@ import UnoCSS from 'unocss/astro'
 export default defineConfig({
   site: 'https://puppy.f53.dev',
   base: '/',
+  trailingSlash: 'never',
   integrations: [UnoCSS(), solidJs(), icon(), alpinejs()],
   scopedStyleStrategy: 'class',
   prefetch: {

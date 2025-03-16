@@ -44,13 +44,27 @@ import LinkButton from './LinkButton.astro'
       border-radius: 1rem;
     }
     transition: all 0.6s cubic-bezier(0.34, 4, 0.64, 1);
+    > * { transition: all .25s ease-in; } // different transition for the bar thingigies
     cursor: pointer;
     &:hover {
-      scale:1.05;
-      filter:brightness(1.05);
+      scale: 1.05;
+      filter: brightness(1.05);
     }
     @media (min-width: 645px) {
       display: none;
+    }
+  }
+
+  dialog[open] + button {
+    transform: rotate(-45deg);
+    .bar1 {
+      transform: translateY(0.55rem);
+    }
+    .bar2 {
+      opacity: 0;
+    }
+    .bar3 {
+      transform: rotate(90deg) translateX(-0.55rem);
     }
   }
 
