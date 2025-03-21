@@ -25,6 +25,9 @@ import { ClientRouter } from 'astro:transitions'
     <meta property="og:title" content="mochienya" />
     <meta property="og:image" content="/android-chrome-512x512.png" />
     <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet" />
     <ClientRouter />
   </head>
   <body style="background:#0c0c0c; margin:0">
@@ -42,7 +45,9 @@ import { ClientRouter } from 'astro:transitions'
   body,
   html {
     color-scheme: dark;
-    font-family: sans-serif;
+    font-family: 'Nunito';
+    font-optical-sizing: auto;
+    font-style: normal;
     height: 100vh;
     display: flex;
     flex-direction: column;
