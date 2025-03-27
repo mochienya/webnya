@@ -4,7 +4,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.excludeGitIgnore": true,
   "explorer.fileNesting.patterns": {
-    "astro.config.mjs": "eslint.config.js, .prettierrc.yml, .editorconfig, README.md, tsconfig.json, package.json, bun.lock, .gitignore, uno.config.ts,",
+    "astro.config.mjs": ".pages.yml, eslint.config.js, .prettierrc.yml, .editorconfig, README.md, tsconfig.json, package.json, bun.lock, .gitignore, uno.config.ts,",
     "package.json": ""
   },
 
