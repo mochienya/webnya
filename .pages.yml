@@ -30,6 +30,10 @@ content:
           time: false
         required: true
 
+      - name: body
+        label: Body
+        type: rich-text
+
     view:
       fields: [title]
       primary: title
