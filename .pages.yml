@@ -1,0 +1,36 @@
+# this is for pages cms https://pagescms.org/
+media:
+  label: blog images
+  input: src/assets/cmsImages
+  output: /img
+  categories: [image]
+
+content:
+  - name: devblogs
+    label: devblogs
+    path: src/pages/devblogs
+    type: collection
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+
+      - name: description
+        label: Description
+        type: string
+        required: true
+
+      - name: date
+        label: Date
+        type: date
+        options:
+          format: yyyy-MM-dd
+          time: false
+        required: true
+
+    view:
+      fields: [title]
+      primary: title
+      sort: [date]
