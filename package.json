@@ -13,33 +13,37 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.3",
-    "@astrojs/solid-js": "^5.0.5",
+    "@astrojs/alpinejs": "^0.4.8",
+    "@astrojs/solid-js": "^5.0.10",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
-    "astro": "^5.5.4",
+    "astro": "^5.7.13",
     "astro-icon": "^1.1.5",
-    "solid-js": "^1.9.5",
-    "two.js": "^0.8.17",
-    "typescript": "^5.8.2"
+    "solid-js": "^1.9.6",
+    "two.js": "^0.8.18",
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.10.2",
+    "@antfu/eslint-config": "^4.13.0",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/mingcute": "^1.2.3",
-    "@types/bun": "^1.2.5",
-    "eslint": "^9.22.0",
-    "lint-staged": "^15.5.0",
+    "@types/bun": "^1.2.13",
+    "eslint": "^9.26.0",
+    "lint-staged": "^15.5.2",
     "prettier": "^3.5.3",
-    "sass": "^1.86.0",
-    "simple-git-hooks": "^2.12.1",
-    "unocss": "^66.1.0-beta.6"
+    "sass": "^1.89.0",
+    "sharp": "^0.34.1",
+    "simple-git-hooks": "^2.13.0",
+    "unocss": "^66.1.2"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
-  }
+  },
+  "trustedDependencies": [
+    "sharp"
+  ]
 }
