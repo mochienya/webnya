@@ -13,26 +13,26 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "@astrojs/solid-js": "^5.0.10",
-    "astro": "^5.7.13",
-    "astro-icon": "^1.1.5",
-    "solid-js": "^1.9.6",
-    "two.js": "^0.8.18",
-    "typescript": "^5.8.3"
-  },
-  "devDependencies": {
     "@antfu/eslint-config": "^4.13.0",
+    "@astrojs/solid-js": "^5.0.10",
     "@iconify-json/ic": "^1.2.2",
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/mingcute": "^1.2.3",
     "@types/bun": "^1.2.13",
+    "astro": "^5.7.13",
+    "astro-icon": "^1.1.5",
+    "sass": "^1.89.0",
+    "sharp": "^0.34.1",
+    "solid-js": "^1.9.6",
+    "two.js": "^0.8.18",
+    "typescript": "^5.8.3",
+    "unocss": "^66.1.2"
+  },
+  "devDependencies": {
     "eslint": "^9.26.0",
     "lint-staged": "^15.5.2",
     "prettier": "^3.5.3",
-    "sass": "^1.89.0",
-    "sharp": "^0.34.1",
-    "simple-git-hooks": "^2.13.0",
-    "unocss": "^66.1.2"
+    "simple-git-hooks": "^2.13.0"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx lint-staged"
