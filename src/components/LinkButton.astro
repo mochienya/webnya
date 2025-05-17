@@ -1,9 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components'
 interface Props {
-  label: string,
-  href: string,
-  icon?: string,
+  label: string
+  href: string
+  icon?: string
 }
 const { label, href, icon } = Astro.props
 ---
@@ -14,7 +14,7 @@ const { label, href, icon } = Astro.props
 </a>
 
 <style lang="scss">
-  @use "../styles/mixins.scss";
+  @use '../styles/mixins.scss';
   a {
     @include mixins.button;
   }

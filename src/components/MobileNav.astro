@@ -3,18 +3,36 @@ import { buttonProps } from '../utils/navButtonProps'
 import LinkButton from './LinkButton.astro'
 ---
 
-<div x-data class="contents">
-  <dialog @click.outside="$refs.dialog.close()" x-ref="dialog" class="darkbgblur">
+<script>
+  function init() {
+    // i know about the id definining variables for you thing but i want autocomplete
+    const dialog = document.getElementById('mobileNavDialog')! as HTMLDialogElement
+    const toggle = document.getElementById('mobileNavToggle')! as HTMLButtonElement
+
+    let isShown = false
+
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation()
+      dialog.open ? dialog.close() : dialog.show()
+    })
+
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target as Node)) dialog.close()
+    })
+  }
+  init()
+  document.addEventListener('astro:page-load', init)
+</script>
+
+<div class="contents">
+  <dialog id="mobileNavDialog" class="darkbgblur">
     <div class="col gap-.65rem">
       <>
         {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
       </>
     </div>
   </dialog>
-  <button
-    @click.stop="$refs.dialog.open ? $refs.dialog.close() : $refs.dialog.show()"
-    aria-label="show/hide navigation menu"
-  >
+  <button aria-label="show/hide navigation menu" id="mobileNavToggle">
     <div class="bar1"></div>
     <div class="bar2"></div>
     <div class="bar3"></div>
@@ -44,7 +62,9 @@ import LinkButton from './LinkButton.astro'
       border-radius: 1rem;
     }
     transition: all 0.6s cubic-bezier(0.34, 4, 0.64, 1);
-    > * { transition: all .25s ease-in; } // different transition for the bar thingigies
+    > * {
+      transition: all 0.25s ease-in;
+    } // different transition for the bar thingigies
     cursor: pointer;
     &:hover {
       scale: 1.05;

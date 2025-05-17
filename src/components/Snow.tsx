@@ -2,7 +2,10 @@ import { onCleanup, onMount } from 'solid-js'
 import { mod, rand } from '../utils/functions.ts'
 import '../styles/snow.scss'
 
-interface Pos { x: number, y: number }
+interface Pos {
+  x: number
+  y: number
+}
 
 let canvas!: HTMLCanvasElement
 let ctx!: CanvasRenderingContext2D

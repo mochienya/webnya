@@ -1,9 +1,6 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "editorconfig.editorconfig",
-    "dbaeumer.vscode-eslint",
-    "risingstack.astro-alpinejs-syntax-highlight",
-    "antfu.unocss"
+    "editorconfig.editorconfig"
   ]
 }

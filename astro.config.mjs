@@ -1,4 +1,3 @@
-import alpinejs from '@astrojs/alpinejs'
 import solidJs from '@astrojs/solid-js'
 import icon from 'astro-icon'
 
@@ -10,7 +9,7 @@ export default defineConfig({
   site: 'https://puppy.f53.dev',
   base: '/',
   trailingSlash: 'never',
-  integrations: [UnoCSS(), solidJs(), icon(), alpinejs()],
+  integrations: [UnoCSS(), solidJs(), icon()],
   scopedStyleStrategy: 'class',
   prefetch: {
     prefetchAll: true,
@@ -20,5 +19,8 @@ export default defineConfig({
   },
   image: {
     experimentalLayout: 'constrained',
+  },
+  vite: {
+    css: { preprocessorOptions: { scss: { silenceDeprecations: ['mixed-decls'] } } },
   },
 })

@@ -7,5 +7,5 @@ trailingComma: es5
 bracketSpacing: true
 objectWrap: preserve
 bracketSameLine: false
-arrowsParens: avoid
+arrowsParens: always
 ...

@@ -24,23 +24,22 @@ const guh = {
 
 <script>
   import { navigate } from 'astro:transitions/client'
-  document.addEventListener('alpine:init', () => {
-    window.Alpine.data('clicker', () => ({
-      count: 0,
-      onclick() {
-        this.count++
-        if (this.count >= 5)
-          navigate('/degeneracy')
-      },
-    }))
-  })
+  function init() {
+    let count = 1
+    ;(document.getElementById('clickableMochieWrapperLink')! as HTMLButtonElement).addEventListener('click', () =>
+      count >= 5 ? navigate('/degeneracy') : console.log(count++)
+    )
+  }
+  // not too fond of this workaround but it's worth it for the clientrouter experience
+  init()
+  document.addEventListener('astro:page-load', init)
 </script>
 
 <Layout>
   <div class="bgblur row card">
-    <a x-data="clicker" @click="onclick">
+    <button id="clickableMochieWrapperLink">
       <Picture src={mochie} formats={['avif', 'webp']} fallbackFormat="png" alt="mochie!!" />
-    </a>
+    </button>
 
     <div class="col otherSection">
       <div class="textContainer darkbgblur">
@@ -67,7 +66,7 @@ const guh = {
 </Layout>
 
 <style lang="scss">
-  a {
+  button {
     all: unset;
     cursor: pointer;
   }

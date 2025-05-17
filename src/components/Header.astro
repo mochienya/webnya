@@ -1,13 +1,13 @@
 ---
-import LinkButton from "./LinkButton.astro"
-import { buttonProps } from "../utils/navButtonProps"
+import LinkButton from './LinkButton.astro'
+import { buttonProps } from '../utils/navButtonProps'
 ---
 
 <header class="bgblur">
   <div class="columnWrapper">
     <div class="navButtons row">
       <>
-        { buttonProps.map(([label, href]) => <LinkButton {label} {href} />) }
+        {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
       </>
     </div>
   </div>
@@ -27,40 +27,42 @@ import { buttonProps } from "../utils/navButtonProps"
 </header>
 
 <style lang="scss">
-
-.navButtons {
-  align-items: center;
-  gap: 0.5rem;
-  @media (max-width: 645px) {
-    display: none;
+  .navButtons {
+    align-items: center;
+    gap: 0.5rem;
+    @media (max-width: 645px) {
+      display: none;
+    }
   }
-}
 
-header {
-  width: 100vw;
-  display: grid;
-  grid-template-columns: repeat(3, 33.33vw);
-  position: sticky;
-  top: 0px;
-  z-index: 2;
-}
-
-.columnWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.name {
-  .pronouns {
-    font-size: 0.95rem;
-    color: #c4c4c4;
-    font-weight: 375;
+  header {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(3, 33.33vw);
+    position: sticky;
+    top: 0px;
+    z-index: 2;
   }
-  a {
-    all: unset;
-    &:hover { text-decoration: underline; cursor: pointer }
+
+  .columnWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-}
+
+  .name {
+    .pronouns {
+      font-size: 0.95rem;
+      color: #c4c4c4;
+      font-weight: 375;
+    }
+    a {
+      all: unset;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+    }
+  }
 </style>

@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "bunx --bun astro dev --open",
+    "dev": "bunx astro dev",
     "build": "bunx --bun astro build",
     "build2": "astro build",
     "preview": "bunx --bun astro preview",
@@ -13,10 +13,7 @@
     "lint:fix": "eslint --fix ."
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.8",
     "@astrojs/solid-js": "^5.0.10",
-    "@types/alpinejs": "^3.13.11",
-    "alpinejs": "^3.14.9",
     "astro": "^5.7.13",
     "astro-icon": "^1.1.5",
     "solid-js": "^1.9.6",

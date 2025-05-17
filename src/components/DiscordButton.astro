@@ -3,28 +3,33 @@ import { Icon } from 'astro-icon/components'
 ---
 
 <script>
-  let timeoutId: Timer | undefined
-  document.addEventListener('alpine:init', () => {
-    window.Alpine.data('copiedMessageShown', () => ({
-      clicked: false,
+  function init() {
+    let timeoutId: Timer | undefined
+    ;(document.getElementById('copyButton')! as HTMLButtonElement).addEventListener('click', () => {
+      clearTimeout(timeoutId)
+      navigator.clipboard.writeText('mochienya')
 
-      clickFun() {
-        clearTimeout(timeoutId)
-        navigator.clipboard.writeText('mochienya')
-        this.clicked = true
-        timeoutId = setTimeout(() => {
-          this.clicked = false
-        }, 1250)
-      },
-    }))
-  })
+      setVisibilities(true)
+      timeoutId = setTimeout(() => setVisibilities(false), 1_250)
+    })
+
+    const copiedToast = document.getElementById('copiedToast')! as HTMLSpanElement
+    const copyToast = document.getElementById('copyToast')! as HTMLSpanElement
+
+    function setVisibilities(shouldShow: boolean) {
+      copyToast.style.display = shouldShow ? 'none' : ''
+      copiedToast.style.display = shouldShow ? 'inline' : ''
+    }
+  }
+  init()
+  document.addEventListener('astro:page-load', init)
 </script>
 
-<div x-data="copiedMessageShown" class="big">
-  <span x-cloak x-show="clicked" class="discordPrompt">copied~!</span>
-  <span x-show="!clicked" class="hoverPrompt discordPrompt">click to copy :3</span>
+<div class="big">
+  <span id="copiedToast" class="discordPrompt">copied~!</span>
+  <span id="copyToast" class="hoverPrompt discordPrompt">click to copy :3</span>
 
-  <button @click="clickFun">
+  <button id="copyButton">
     <div class="textContainer">
       <span>
         <Icon name="ic:baseline-discord" />
@@ -53,6 +58,7 @@ import { Icon } from 'astro-icon/components'
   }
 
   .discordPrompt {
+    display: none;
     position: absolute;
     bottom: 2.5rem;
     background-color: #23a55a;
@@ -85,7 +91,7 @@ import { Icon } from 'astro-icon/components'
       justify-content: center;
       gap: 0.25rem;
       transition: transform 0.2s cubic-bezier(0.37, 0, 0.63, 1);
-      // the :hover is further up because if you put it here and hover button edge it no worky
+      // the :hover is further up because if you put it here and try hovering button edge it no worky
     }
   }
 
