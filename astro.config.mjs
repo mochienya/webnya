@@ -1,15 +1,15 @@
 import solidJs from '@astrojs/solid-js'
+import tailwindcss from '@tailwindcss/vite'
+
 import icon from 'astro-icon'
 
 import { defineConfig } from 'astro/config'
-
-import UnoCSS from 'unocss/astro'
 
 export default defineConfig({
   site: 'https://puppy.f53.dev',
   base: '/',
   trailingSlash: 'never',
-  integrations: [UnoCSS(), solidJs(), icon()],
+  integrations: [solidJs(), icon()],
   scopedStyleStrategy: 'class',
   prefetch: {
     prefetchAll: true,
@@ -21,6 +21,10 @@ export default defineConfig({
     experimentalLayout: 'constrained',
   },
   vite: {
-    css: { preprocessorOptions: { scss: { silenceDeprecations: ['mixed-decls'] } } },
+    css: {
+      transformer: 'lightningcss',
+      preprocessorOptions: { scss: { silenceDeprecations: ['mixed-decls'] } },
+    },
+    plugins: [tailwindcss()],
   },
 })

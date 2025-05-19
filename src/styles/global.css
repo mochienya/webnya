@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-light-text: #c4c4c4;
+  --color-btn-main: #31a3d8;
+}
+
+@custom-variant mb (@media (max-width: 645px));
+
+.bg-blur,
+.dark-bg-blur {
+  backdrop-filter: blur(0.3rem);
+  &.bg-blur {
+    background-color: #ffffff03;
+  }
+  &.dark-bg-blur {
+    background-color: #0000004d;
+  }
+}
+
+h1,h2,h3 { font-weight: bold }
+
+h1 { font-size: 2em }
+h2 { font-size: 1.5em }
+h3 { font-size: 1.17em }
+
+h5 {
+  color: var(--color-light-text);
+  font-size: 0.95rem;
+  font-weight: 375;
+}
+
+* {
+  line-height: normal;
+}
+
+.row,
+.col {
+  display: flex;
+  &.row {
+    flex-direction: row;
+  }
+  &.col {
+    flex-direction: column;
+  }
+}
+
+.bouncy-blue-button {
+  all: unset;
+  background-color: var(--color-btn-main);
+  font-weight: 900;
+  border-radius: 15px;
+  border-width: 0px;
+  height: min-content;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.34, 4, 0.64, 1);
+
+  &:hover {
+    scale: 1.05;
+    filter: brightness(1.05);
+  }
+
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12em;
+}

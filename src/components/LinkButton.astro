@@ -8,14 +8,7 @@ interface Props {
 const { label, href, icon } = Astro.props
 ---
 
-<a {href}>
+<a {href} class="bouncy-blue-button p-0">
   {icon && <Icon name={icon} />}
   <span>{label}</span>
 </a>
-
-<style lang="scss">
-  @use '../styles/mixins.scss';
-  a {
-    @include mixins.button;
-  }
-</style>

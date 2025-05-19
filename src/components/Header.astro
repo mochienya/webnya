@@ -3,66 +3,36 @@ import LinkButton from './LinkButton.astro'
 import { buttonProps } from '../utils/navButtonProps'
 ---
 
-<header class="bgblur">
-  <div class="columnWrapper">
-    <div class="navButtons row">
-      <>
-        {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
-      </>
-    </div>
+<header class="bg-blur">
+  <div class="row items-center gap-2 mb:hidden">
+    <div class="ml-4! invisible"></div>
+    <>
+      {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
+    </>
   </div>
 
-  <div class="columnWrapper">
-    <div class="name col">
+  <div class="col items-center justify-center">
+    <div class="col">
       <h1>mochienya</h1>
-      <span class="pronouns">
-        she/<a href="https://f53.dev">her's</a>
-      </span>
+      <h5>
+        she/<a href="https://f53.dev" class="hover:underline cursor-pointer">her's</a>
+      </h5>
     </div>
   </div>
 
-  <div class="columnWrapper">
-    <div class="lightSwitch"></div>
-  </div>
+  <div>{/* i'll put a light mode toggle here some day... */}</div>
 </header>
 
 <style lang="scss">
-  .navButtons {
-    align-items: center;
-    gap: 0.5rem;
-    @media (max-width: 645px) {
-      display: none;
-    }
-  }
-
   header {
     width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(3, 33.33vw);
-    position: sticky;
     top: 0px;
     z-index: 2;
-  }
-
-  .columnWrapper {
+    position: sticky;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .name {
-    .pronouns {
-      font-size: 0.95rem;
-      color: #c4c4c4;
-      font-weight: 375;
-    }
-    a {
-      all: unset;
-      &:hover {
-        text-decoration: underline;
-        cursor: pointer;
-      }
+    flex-direction: row;
+    > * {
+      flex: 1;
     }
   }
 </style>

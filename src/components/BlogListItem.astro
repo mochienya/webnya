@@ -6,34 +6,17 @@ interface Props {
 const { entry } = Astro.props
 ---
 
-<a class="link" href={entry.id}>
-  <div class="row justify-between darkbgblur listElement">
-    <div class="col">
-      <h2>{entry.data.title}</h2>
-      <span>{entry.data.description}</span>
-    </div>
-    <div class="col">
-      <span>{entry.data.date}</span>
-    </div>
+<a class="row justify-between dark-bg-blur listElement" href={entry.id}>
+  <div class="col">
+    <h2 class="">{entry.data.title}</h2>
+    <span class="text-light-text">{entry.data.description}</span>
+  </div>
+  <div class="col">
+    <span class="text-light-text">{entry.data.date}</span>
   </div>
 </a>
 
 <style lang="scss">
-  a {
-    all: unset;
-    display: contents;
-  }
-  .link {
-    &,
-    & > * {
-      text-decoration: none;
-    }
-  }
-
-  span {
-    color: #c4c4c4;
-  }
-
   .listElement {
     padding: 0.4rem;
     border-radius: 10px;

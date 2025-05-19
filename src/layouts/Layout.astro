@@ -3,6 +3,7 @@ import Header from '../components/Header.astro'
 import MobileNav from '../components/MobileNav.astro'
 import { Snow } from '../components/Snow.tsx'
 import { ClientRouter } from 'astro:transitions'
+import '../styles/global.css'
 ---
 
 <!doctype html>
@@ -41,7 +42,6 @@ import { ClientRouter } from 'astro:transitions'
 </html>
 
 <style is:global>
-  @import '../styles/animations.scss';
   body,
   html {
     color-scheme: dark;

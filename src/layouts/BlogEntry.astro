@@ -13,13 +13,13 @@ const { title, description, date } = entry.data
 ---
 
 <Layout>
-  <div class="bgblur card">
+  <div class="bg-blur card">
     <div class="row header">
       <div class="col">
         <h1>{title}</h1>
-        <h3>{description}</h3>
+        <h5>{description}</h5>
       </div>
-      <h3>{date}</h3>
+      <h5>{date}</h5>
     </div>
     <hr />
     <div class="markdown"><Content /></div>
@@ -44,11 +44,6 @@ const { title, description, date } = entry.data
       > * {
         margin: 0.65rem 0;
       }
-    }
-    h3 {
-      color: #c4c4c4;
-      font-weight: 375;
-      font-size: 0.95rem;
     }
     :global(.markdown :is(p, h2, h3, ul)) {
       margin-bottom: 0.6rem;

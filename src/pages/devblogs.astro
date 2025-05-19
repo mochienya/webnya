@@ -6,18 +6,14 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <div class="card bgblur col">
+  <div class="card bg-blur col">
     <h1>devblogs!!</h1>
     <hr />
     <div class="blogList">
       <ul>
         {
           posts
-            .toSorted(
-              (a, b) =>
-                new Date(b.data.date).getTime() -
-                new Date(a.data.date).getTime()
-            )
+            .toSorted((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
             .map((entry) => <BlogListItem {entry} />)
         }
       </ul>
