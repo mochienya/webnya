@@ -1,4 +1,5 @@
 ---
+import WordList from '../components/WordList.astro'
 import Layout from '../layouts/Layout.astro'
 const modifiers = [
   'such a',
@@ -35,19 +36,8 @@ const things = [
 
 <Layout>
   <div class="card bg-blur">
-    <div class="wordlist">
-      <span class="title">Modifiers</span>
-      <div class="listcontent col dark-bg-blur">
-        {modifiers.map((modifier) => <span class="listitem">{modifier}</span>)}
-      </div>
-    </div>
-
-    <div class="wordlist">
-      <span class="title">Things</span>
-      <div class="listcontent col dark-bg-blur">
-        {things.map((thing) => <span class="listitem">{thing}</span>)}
-      </div>
-    </div>
+    <WordList words={modifiers} title="Modifiers" />
+    <WordList words={things} title="Things" />
   </div>
 </Layout>
 
@@ -58,30 +48,5 @@ const things = [
     gap: 1rem;
     padding: 0.5rem;
     border-radius: 1rem;
-  }
-  .wordlist {
-    display: flex;
-    flex-direction: column;
-    align-items: space-around;
-    gap: 0.75rem;
-    > * {
-      margin: 0 auto;
-    }
-    .title {
-      font-weight: bold;
-      padding: 0.25rem 0rem;
-    }
-    .listitem {
-      padding: 0.125rem 0.25rem;
-      border-radius: 1rem;
-      width: fit-content;
-    }
-    .listcontent {
-      align-items: center;
-      justify-content: space-around;
-      padding: 0.2rem;
-      border-radius: 10px;
-      height: 100%;
-    }
   }
 </style>

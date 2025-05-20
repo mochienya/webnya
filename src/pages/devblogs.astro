@@ -8,16 +8,14 @@ import Layout from '../layouts/Layout.astro'
 <Layout>
   <div class="card bg-blur col">
     <h1>devblogs!!</h1>
-    <hr />
-    <div class="blogList">
-      <ul>
-        {
-          posts
-            .toSorted((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
-            .map((entry) => <BlogListItem {entry} />)
-        }
-      </ul>
-    </div>
+    <hr class="my-3" />
+    <ul class="col gap-3.5">
+      {
+        posts
+          .toSorted((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+          .map((entry) => <BlogListItem {entry} />)
+      }
+    </ul>
   </div>
 </Layout>
 
@@ -32,14 +30,5 @@ import Layout from '../layouts/Layout.astro'
   }
   hr {
     margin: 0.8rem 0;
-  }
-  li,
-  ul {
-    all: unset;
-  }
-  ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
   }
 </style>

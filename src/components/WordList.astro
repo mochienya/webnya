@@ -1,0 +1,14 @@
+---
+interface Props {
+  words: string[]
+  title: string
+}
+const { words, title } = Astro.props
+---
+
+<div class="col gap-3 items-center">
+  <span class="font-bold py-1">{title}</span>
+  <div class="col dark-bg-blur items-center justify-around p-1 rounded-xl h-full">
+    {words.map((word) => <span class="px-1">{word}</span>)}
+  </div>
+</div>

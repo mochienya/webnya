@@ -8,7 +8,7 @@ interface Props {
 const { label, href, icon } = Astro.props
 ---
 
-<a {href} class="bouncy-blue-button p-0">
+<a {href} class="bouncy-blue-button">
   {icon && <Icon name={icon} />}
   <span>{label}</span>
 </a>

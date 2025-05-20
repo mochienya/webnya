@@ -9,8 +9,6 @@ import LinkButton from './LinkButton.astro'
     const dialog = document.getElementById('mobileNavDialog')! as HTMLDialogElement
     const toggle = document.getElementById('mobileNavToggle')! as HTMLButtonElement
 
-    let isShown = false
-
     toggle.addEventListener('click', (e) => {
       e.stopPropagation()
       dialog.open ? dialog.close() : dialog.show()
@@ -21,15 +19,13 @@ import LinkButton from './LinkButton.astro'
     })
   }
   init()
-  document.addEventListener('astro:page-load', init)
+  document.addEventListener('astro:after-swap', init)
 </script>
 
 <div class="contents">
   <dialog id="mobileNavDialog" class="dark-bg-blur">
-    <div class="col gap-.65rem">
-      <>
-        {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
-      </>
+    <div class="col gap-2.5">
+      {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
     </div>
   </dialog>
   <button aria-label="show/hide navigation menu" id="mobileNavToggle">
@@ -46,12 +42,11 @@ import LinkButton from './LinkButton.astro'
     bottom: 2rem;
     right: 2rem;
     z-index: 2;
-    background-color: #31a3d8;
+    background-color: var(--color-btn-main);
     border-radius: 50%;
     padding: 1rem;
     width: 2rem;
     height: 2rem;
-    aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -98,13 +93,14 @@ import LinkButton from './LinkButton.astro'
     border-radius: 1rem;
     padding: 1.1rem;
 
-    animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+    animation: slideIn 0.4s cubic-bezier(0.33, 1, 0.68, 1); // Shorthand for animation properties
     @keyframes slideIn {
       from {
         transform: translateX(8rem);
       }
+    }
+    @media (min-width: 645px) {
+      display: none;
     }
   }
 </style>

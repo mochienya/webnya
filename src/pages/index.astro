@@ -16,21 +16,27 @@ import mochie from '/src/assets/mochienya.png'
   }
   // not too fond of this workaround but it's worth it for the clientrouter experience
   init()
-  document.addEventListener('astro:page-load', init)
+  document.addEventListener('astro:after-swap', init)
 </script>
 
 <Layout>
-  <div class="bg-blur row card mb:col mb:gap-4">
+  <div class="bg-blur row card mb:flex-col mb:gap-4">
     <button id="clickableMochieWrapperLink" class="cursor-pointer">
-      <Picture src={mochie} formats={['avif', 'webp']} fallbackFormat="png" alt="mochie!!"/>
+      <Picture src={mochie} formats={['avif', 'webp']} fallbackFormat="png" alt="mochie!!" />
     </button>
 
     <div class="col h-full justify-between">
-      <div class="dark-bg-blur p-[0.65rem] rounded-2xl">
-        <p>
-          haiiii! i'm a massive tech nerd currently trying to teach myself stuff so i can get a job <br />
-          i really enjoy tinkering with linux, watching shows with my gf, and talking to people
-        </p>
+      <div class="dark-bg-blur p-3 rounded-xl">
+        <p>haiiii! i'm a massive tech nerd currently trying to teach myself stuff for fun or maybe get a job.</p>
+        <p>things i like:</p>
+        <ul class="list-inside list-disc">
+          <li>tinkering with linux(nixos)</li>
+          <li>rust</li>
+          <li>typescript</li>
+          <li>watching shows with my gf</li>
+          <li>talking to people (sometimes)</li>
+        </ul>
+        <br />
         <p>The mochie knows where she is at all times. She knows this because she's in her master's arms.</p>
         <!-- add more stuff here. i can't think anymore -->
       </div>
@@ -52,6 +58,7 @@ import mochie from '/src/assets/mochienya.png'
   img {
     width: 320px;
     height: 320px;
+    max-width: unset;
   }
   .card {
     align-items: center;

@@ -4,11 +4,9 @@ import { buttonProps } from '../utils/navButtonProps'
 ---
 
 <header class="bg-blur">
-  <div class="row items-center gap-2 mb:hidden">
-    <div class="ml-4! invisible"></div>
-    <>
-      {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
-    </>
+  <div class="row items-center gap-2 mb:invisible!">
+    <div class="ml-4 invisible"></div>
+    {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
   </div>
 
   <div class="col items-center justify-center">
