@@ -9,16 +9,16 @@ import { Icon } from 'astro-icon/components'
       clearTimeout(timeoutId)
       navigator.clipboard.writeText('mochienya')
 
-      setVisibilities(true)
-      timeoutId = setTimeout(() => setVisibilities(false), 1_250)
+      toggleVisibilities()
+      timeoutId = setTimeout(toggleVisibilities, 1_250)
     })
 
     const copiedToast = document.getElementById('copiedToast')! as HTMLSpanElement
     const copyToast = document.getElementById('copyToast')! as HTMLSpanElement
 
-    function setVisibilities(shouldShow: boolean) {
-      copyToast.style.display = shouldShow ? 'none' : ''
-      copiedToast.style.display = shouldShow ? 'inline' : ''
+    function toggleVisibilities() {
+      copyToast.classList.toggle('hidden')
+      copiedToast.classList.toggle('inline')
     }
   }
   init()
