@@ -1,5 +1,4 @@
 ---
-import WordList from '../components/WordList.astro'
 import Layout from '../layouts/Layout.astro'
 const modifiers = [
   'such a',
@@ -32,12 +31,35 @@ const things = [
   'puppygirlfriend',
   'lap dog',
 ]
+
+type category = { title: string; words: string[] }[]
+
+const categories: category = [
+  {
+    title: 'Modifiers',
+    words: modifiers,
+  },
+  {
+    title: 'Things',
+    words: modifiers,
+  },
+]
 ---
 
 <Layout>
   <div class="card bg-blur">
-    <WordList words={modifiers} title="Modifiers" />
-    <WordList words={things} title="Things" />
+    {
+      categories.map((props) => (
+        <div class="col gap-3 items-center">
+          <span class="font-bold py-1">{props.title}</span>
+          <div class="col dark-bg-blur items-center justify-around p-1 rounded-xl h-full">
+            {props.words.map((word) => (
+              <span class="px-1">{word}</span>
+            ))}
+          </div>
+        </div>
+      ))
+    }
   </div>
 </Layout>
 

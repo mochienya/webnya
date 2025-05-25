@@ -69,7 +69,10 @@
     height: min-content;
     padding: 0.25rem 0.5rem;
     cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.34, 4, 0.64, 1);
+    @variant not-mb {
+      transition: all 0.6s cubic-bezier(0.34, 4, 0.64, 1 );
+      /* in query because otherwise it has weird popping when the header changes */
+    }
 
     &:hover {
       scale: 1.05;

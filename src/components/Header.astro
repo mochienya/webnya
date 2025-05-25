@@ -4,7 +4,7 @@ import { buttonProps } from '../utils/navButtonProps'
 ---
 
 <header class="bg-blur">
-  <div class="row items-center gap-2 mb:invisible!">
+  <div class="row items-center gap-2 mb:invisible mb:block">
     <div class="ml-4 invisible"></div>
     {buttonProps.map(([label, href]) => <LinkButton {label} {href} />)}
   </div>
@@ -17,8 +17,8 @@ import { buttonProps } from '../utils/navButtonProps'
       </h5>
     </div>
   </div>
-
-  <div>{/* i'll put a light mode toggle here some day... */}</div>
+  {/* i'll put a light mode toggle here some day... */}
+  <div></div>
 </header>
 
 <style lang="scss">
