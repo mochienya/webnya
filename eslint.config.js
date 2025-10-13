@@ -21,4 +21,7 @@ export default antfu({
 	rules: {
 		"no-new": "off",
 	},
+	ignores: [
+		"src/pages/devblogs/*.md",
+	],
 })

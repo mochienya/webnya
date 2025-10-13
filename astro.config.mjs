@@ -28,4 +28,9 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 	},
 	devToolbar: { enabled: false },
+	markdown: {
+		shikiConfig: {
+			theme: "github-dark-dimmed",
+		},
+	},
 })

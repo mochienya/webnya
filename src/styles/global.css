@@ -43,6 +43,9 @@
 	hr {
 		min-width: 100%;
 	}
+	pre.astro-code {
+		background-color: #0000 !important;
+	}
 }
 
 @layer components {
