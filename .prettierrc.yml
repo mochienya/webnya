@@ -1,11 +1,11 @@
 ---
 printWidth: 120
+useTabs: true
 semi: false
-singleQuote: true
+singleQuote: false
 quoteProps: as-needed
 trailingComma: es5
 bracketSpacing: true
 objectWrap: preserve
 bracketSameLine: false
-arrowsParens: always
-...
+arrowParens: always

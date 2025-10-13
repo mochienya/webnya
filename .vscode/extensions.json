@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "astro-build.astro-vscode",
-    "editorconfig.editorconfig"
-  ]
+	"recommendations": ["astro-build.astro-vscode", "editorconfig.editorconfig"]
 }

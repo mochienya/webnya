@@ -19,11 +19,13 @@ I started out with just coloring my own name but after not that long I had a fai
 Eventually when I found the scrolling to be too tedious, I decided to move it to a repo with mildly categorized files.
 
 ## equicock plugins
+
 I've been using vencord since late 2023 when a friend of mine switched to it and they told me it wasn't as slow as betterdiscord.
 
 I find it enjoyable to fiddle with things, especially if it improves my day to day life.
 
 ### fullVcPfp
+
 Making a vencord plugin has been in the back of my head for a while but I never really had a good idea, until the idea for fullVcPfp popped into my head.
 
 At first I gave up when I couldn't make a proper patch myself (i suck at regex and especially trying to understand minified react), but I soon discovered usrbg had a suitable one.
@@ -40,12 +42,14 @@ My plugin did not work on the web version of discord but they found a fix that d
 Plugin got merged to main while I was sleeping.
 
 ### toggleVideoBind
+
 When I woke up the next day, I looked through the vencord plugin suggestions repo and came across
 an issue asking for a bind to toggle webcam. This was something I had already implemented with the Legcord shortcut feature.
 
 Development process was fairly short but I'm still pretty clueless with a lot of the stuff I'm doing. At least there was no regex this time.
 
 ### customUserColors
+
 It always annoyed me a bit that my name color css couldn't work for typing or replies.
 
 I decided to see if it would be easy to make a patch for it, and I saw that

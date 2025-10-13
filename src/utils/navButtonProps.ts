@@ -1,4 +1,4 @@
 export const buttonProps = [
-  ['home', '/'],
-  ['devblogs', '/devblogs'],
+	["home", "/"],
+	["devblogs", "/devblogs"],
 ]

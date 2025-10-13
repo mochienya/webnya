@@ -8,6 +8,7 @@ date: "2025.02.07"
 The abacus market login process is just a whole lot of human verification and security checks.
 
 I noticed that in the settings page, there was a section for logging in by decrypting a PGP message. After a bit of research I decided it actually would be slower, as I would have to:
+
 - Copy the message
 - Open an online PGP message decryptor and paste the message
 - Find where I store my private key and copy it
@@ -41,6 +42,7 @@ and no way to just import a private key from a file.
 (I think it needed you to specify some things called MPIs for rsa private keys?)
 
 I looked at a whole lot of other languages, which were one or more of the following:
+
 - Too complicated to use
 - Didn't have good enough tooling
 - Couldn't compile to native code that didn't need dependencies on windows and Linux
@@ -50,6 +52,7 @@ The packages seem promising and the package manager is actually useable.
 (oomf also told me it's programming for stupid people which sounds very good)
 
 ## go port
+
 Development was basically just writing the typescript code but replacing `.expect()`
 with `var, err :=` and `if (err != nil) {log.Fatal()}`.
 
