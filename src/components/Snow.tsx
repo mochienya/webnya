@@ -40,11 +40,11 @@ class Flake {
 	readonly size: number
 	readonly blur: number
 	readonly alpha: number
-	readonly tex: OffscreenCanvas
+	readonly tex: ImageBitmap
 
 	static flakes: Flake[] = []
 
-	constructor() {
+	constructor(cv: OffscreenCanvas, ctx: OffscreenCanvasRenderingContext2D) {
 		this.pos = {
 			x: rand(0, canvas.width),
 			y: rand(0, canvas.height),
@@ -56,25 +56,22 @@ class Flake {
 		this.size = rand(0.5, 6)
 		this.blur = this.size * 2.5 + 2
 		this.alpha = rand(0.1, 1)
-		this.tex = this.makeFlakeTex()
+		this.tex = this.makeFlakeTex(cv, ctx)
 		Flake.flakes.push(this)
 	}
 
-	makeFlakeTex(): OffscreenCanvas {
-		const canvas = new OffscreenCanvas(flakeTexSize, flakeTexSize)
-		const ctx = canvas.getContext("2d")!
+	makeFlakeTex(cv: OffscreenCanvas, cvCtx: OffscreenCanvasRenderingContext2D): ImageBitmap {
+		cvCtx.shadowBlur = this.blur
+		cvCtx.globalAlpha = this.alpha
+		cvCtx.fillStyle = "#ffffff7f"
+		cvCtx.shadowColor = "#ffffffbf"
 
-		ctx.shadowBlur = this.blur
-		ctx.globalAlpha = this.alpha
-		ctx.fillStyle = "#ffffff7f"
-		ctx.shadowColor = "#ffffffbf"
+		cvCtx.beginPath()
+		cvCtx.arc(flakeTexSize / 2, flakeTexSize / 2, this.size, 0, 360)
+		cvCtx.fill()
+		cvCtx.closePath()
 
-		ctx.beginPath()
-		ctx.arc(flakeTexSize / 2, flakeTexSize / 2, this.size, 0, 360)
-		ctx.fill()
-		ctx.closePath()
-
-		return canvas
+		return cv.transferToImageBitmap()
 	}
 
 	move(deltaTime: number) {
@@ -115,7 +112,10 @@ export function Snow() {
 		handleResize()
 
 		if (Flake.flakes.length === 0) {
-			for (let i = 0; i < 500; i++) new Flake()
+			const cv = new OffscreenCanvas(flakeTexSize, flakeTexSize)
+			const cvCtx = cv.getContext("2d")!
+			for (let i = 0; i < 500; i++)
+				new Flake(cv, cvCtx)
 		}
 		addEventListener("resize", handleResize)
 		animationId = requestAnimationFrame(render)
